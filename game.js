@@ -214,7 +214,9 @@ function updateGameArea() {
         turn.update();
     });
 
-    restartButton.update();
+    if (gameOver) {
+        restartButton.update();
+    }
 
     updateTurnText();
 
@@ -327,7 +329,7 @@ myGameArea.canvas.addEventListener('mousedown', function (e) {
     var maxY = restartButton.y + restartButton.height;
 
     if (clickedX >= minX && clickedX <= maxX && clickedY >= minY && clickedY <= maxY) {
-        console.log('clicked on restart');
+        myGameArea.reset();
     }
 
 });
